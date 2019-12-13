@@ -46,6 +46,9 @@ ul.list-items{
 	flex-flow: row wrap;
 	justify-content:space-around;
 }
+ul.list-items li:hover{
+	box-shadow: 0 6px 12px rgba(0,0,0,.5);
+}
 ul.list-items li{
 	width:270px;
 	min-width: 100px;

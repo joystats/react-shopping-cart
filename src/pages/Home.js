@@ -6,7 +6,6 @@ class Home extends Component{
 	render(){
 		return (
 			<div>
-				<Script url="https://cdn.omise.co/omise.js" onLoad={this.handleLoadScript}/>
 				<h2>วิธีทำรายการ</h2>
 				<div>
 					<a className="a_title">การชำระเงินผ่านบัตรเครดิตและอินเตอร์เน็ตแบ็งค์กิ้ง</a>

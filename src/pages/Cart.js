@@ -118,6 +118,7 @@ class Cart extends Component{
 			sessionStorage.setItem("ref_"+random_id,id);
 			localStorage.removeItem("carts")
 			this.setState({carts:null})
+			this.props.clearAmountCart()
 			window.location.href=authorizeUri
 		}
 	}
@@ -142,6 +143,7 @@ class Cart extends Component{
 			if(response.data.status==="successful"){
 				localStorage.removeItem("carts")
 				this.setState({carts:null})
+				this.props.clearAmountCart();
 			}
 			this.setState({charged:response.data})
 		}

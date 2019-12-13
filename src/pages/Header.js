@@ -6,9 +6,9 @@ class Header extends Component{
 		return (
 			<>
 				<header>
-					<h1>Serverless MySQL Application</h1>
-					<h2>Robot Profiles</h2>
-					<p>This website is a collection of robot profiles, loaded from a Node.js API that pulls data from MySQL and returns it as JSON, ready for pagination.</p>
+					<h1>เว็บไซต์ตัวอย่างระบบการชำระเงิน</h1>
+					<h2>ผ่านบัตรเครดิตและอินเตอร์เน็ตแบ็งคกิ้ง</h2>
+					<p>โดยใช้ Payment API ของ <a href="https://omise.co">Omise.co</a> ท่านสามารถทดลองใช้งานได้ทันที หรือ ข้อมูลเพิ่มเติมที่หน้า <NavLink to="/about">About</NavLink></p>
 				</header>
 				<ul id="nav">
 					<li><NavLink exact to="/">Home</NavLink></li>

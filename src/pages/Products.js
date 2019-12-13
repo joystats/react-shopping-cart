@@ -35,7 +35,7 @@ class Products extends Component{
 									<Link to={`/product/${item.id}/${item.name}`}>
 										<img src={item.image_url} alt="item"/>
 										<span>{item.name}</span>
-										<span>{item.price}</span>
+										<p>{item.price} THB</p>
 									</Link>
 								</li>
 							)

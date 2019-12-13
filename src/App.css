@@ -61,6 +61,12 @@ ul.list-items li a{
 	border-bottom: 0px;
 	padding: 16px;
 }
+a.a_product p{
+	font-weight:bold;
+}
+a.a_product{
+	color:#000;
+}
 
 ul.list-items li a img{
 	width: 214px;

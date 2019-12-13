@@ -47,7 +47,7 @@ ul.list-items{
 	justify-content:space-around;
 }
 ul.list-items li{
-	width:30%;
+	width:270px;
 	min-width: 100px;
 	box-shadow: rgba(0,0,0,0.1) 0px 6px 12px;
 	margin: 16px 0;

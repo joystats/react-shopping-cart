@@ -34,9 +34,9 @@ class Products extends Component{
 								<li key={index}>
 									<Link to={`/product/${item.id}/${item.name}`}>
 										<img src={item.image_url} alt="item"/>
-										<span>{item.name}</span>
-										<p>{item.price} THB</p>
 									</Link>
+									<span>{item.name}</span>
+									<p>{item.price} THB</p>
 								</li>
 							)
 						})

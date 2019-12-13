@@ -175,6 +175,9 @@ class Cart extends Component{
 	getAmount(){
 		
 		let localData = localStorage.getItem("carts");
+		if(!localData){
+			return;
+		}
 		let array_price=[]
 		JSON.parse(atob(localData)).map((item)=>{
 			array_price.push(parseInt(item.amount))

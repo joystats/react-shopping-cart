@@ -30,6 +30,9 @@ class Header extends Component{
 		
 		let localData = localStorage.getItem("carts");
 		let array_price=[]
+		if(!localData){
+			return;
+		}
 		JSON.parse(atob(localData)).map((item)=>{
 			array_price.push(parseInt(item.amount))
 			return item;

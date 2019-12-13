@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-
+import {connect} from 'react-redux'
 
 class ProductDetail extends Component{
 	state={
@@ -75,6 +75,7 @@ class ProductDetail extends Component{
 
 	addToCart(id,title,price){
 		this.setState({exists:true})
+		this.props.addAmountCart();
 		var carts=[]
 		let cartStorage = localStorage.getItem("carts")
 		if(cartStorage==null){
@@ -94,4 +95,17 @@ class ProductDetail extends Component{
 	}
 }
 
-export default ProductDetail
+function mapStateToProps(state){
+	return {
+		amount:state.create.amount
+	}
+}
+function mapDispatchToProps(dispatch){
+	return {
+		addAmountCart:()=>{
+			dispatch({type: "ADD"})
+		}
+	}
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(ProductDetail)

@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
 import Script from 'react-load-script'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
@@ -16,10 +17,13 @@ class Cart extends Component{
 	}
 	componentDidMount(){
 		let carts = localStorage.getItem("carts");
+		this.props.clearAmountCart();
 		if(carts!==null){
 			this.setState({carts:atob(carts)})
+			this.getAmount()
 		}
 	}
+	
 	handleLoadScript=()=>{
 		OmiseCard=window.OmiseCard
 		OmiseCard.configure({
@@ -41,7 +45,7 @@ class Cart extends Component{
 		if(this.state.carts!==null){
 			listItem = JSON.parse(this.state.carts).map((item)=>{
 				array_price.push(item.price*item.amount)
-				return <li key={item.id}>{item.title} - Price: {item.price} x <input type="number" value={item.amount} onChange={(e)=>this.changeQty(item.id,e)}/> = {item.totalPrice} <button className="btn-delete" onClick={()=>this.removeItem(item.id)}>remove</button></li>
+				return <li key={item.id}><Link to={`/product/${item.id}/${item.name}`}>{item.title}</Link> ราคา {item.price.toFixed(2)} THB x <input className="amount" type="number" value={item.amount} onChange={(e)=>this.changeQty(item.id,e)}/> = {item.totalPrice} THB <button className="btn-delete" onClick={()=>this.removeItem(item.id)}>ลบรายการ</button></li>
 			})
 
 			totalPrice = array_price.reduce((total,num)=>{
@@ -54,7 +58,7 @@ class Cart extends Component{
 		return (
 			<div>
 				<Script url="https://cdn.omise.co/omise.js" onLoad={this.handleLoadScript}/>
-				<h2>ชำระเงินผ่านบัตรเครดิต หรือ Internet Banking</h2>
+				<h2>สินค้าในตะกร้า</h2>
 				{
 					!charged &&
 					<ul className="carts-list">
@@ -67,7 +71,7 @@ class Cart extends Component{
 				{
 						carts && 
 						<form>
-							<button disabled={loading} type="submit" value="pay credit card" onClick={this.handleCheckout}>Pay Amount: {totalPrice.toFixed(2)} THB</button>
+							<button disabled={loading} type="submit" value="pay credit card" onClick={this.handleCheckout}>ชำระเงินจำนวน {totalPrice.toFixed(2)} THB</button>
 						</form>
 				}
 				
@@ -167,6 +171,20 @@ class Cart extends Component{
 		e.preventDefault();
 		this.omiseCardHandle()
 	}
+	
+	getAmount(){
+		
+		let localData = localStorage.getItem("carts");
+		let array_price=[]
+		JSON.parse(atob(localData)).map((item)=>{
+			array_price.push(parseInt(item.amount))
+			return item;
+		})
+		let total = array_price.reduce((total,num)=>{
+			return total+num;
+		},0)
+		this.props.setclearAmountCart(total)
+	}
 
 	changeQty(id,e){
 		if(e.target.value<=0){
@@ -181,6 +199,8 @@ class Cart extends Component{
 		})
 		this.setState({carts:JSON.stringify(updateCarts)})
 		localStorage.setItem("carts",btoa(JSON.stringify(updateCarts)))
+		
+		this.getAmount();
 	}
 	
 	removeItem(id){
@@ -190,14 +210,35 @@ class Cart extends Component{
 		if(updateCarts.length>0){
 			this.setState({carts:JSON.stringify(updateCarts)})
 			localStorage.setItem("carts",btoa(JSON.stringify(updateCarts)))
+			this.getAmount()
 		}else{
 			this.setState({carts:null})
 			localStorage.removeItem("carts")
 		}
 		
-		
 	}
 }
 
+function mapStateToProps(state){
+	return {
+		amount:state.create.amount
+	}
+}
+function mapDispatchToProps(dispatch){
+	return {
+		setclearAmountCart:(amount)=>{
+			dispatch({type: "SET",payload:amount})
+		},
+		clearAmountCart:()=>{
+			dispatch({type: "CLEAR"})
+		},
+		addAmountCart:()=>{
+			dispatch({type: "ADD"})
+		},
+		delAmountCart:()=>{
+			dispatch({type: "DEL"})
+		}
+	}
+}
 
-export default Cart;
+export default connect(mapStateToProps,mapDispatchToProps)(Cart);

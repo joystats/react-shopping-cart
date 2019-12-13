@@ -36,10 +36,14 @@ class PaymentHistory extends Component{
 					var y = date.getFullYear()
 					var h = date.getHours()
 					var mi = date.getMinutes()
-					var s = date.getSeconds()
-					return <li key={index}>#{index+1}. ID: {item.id}, Amount: {(item.amount/100).toFixed(2)}, Currency: {item.currency}, 
-					Status: <span className={item.status==="successful"?'green':'orange'}>{item.status}</span>,
-					Created: {y}-{m+1}-{d} {h}:{mi}:{s}</li>
+					return (
+						<tr key={index}>
+							<td>#{index+1}</td>
+							<td>{y}-{m+1}-{d} {h}:{mi}</td>
+							<td align="right">{(item.amount/100).toFixed(2)}</td>
+							<td><span className={item.status==="successful"?'green':'orange'}>{item.status}</span></td>
+						</tr>
+					)
 				})
 				this.setState({textList:txt})
 			}
@@ -51,15 +55,28 @@ class PaymentHistory extends Component{
 	
 		return (
 			<div>
-				<h2>การชำระเงินล่าสุด 50 รายการ</h2>
+				<h2>การชำระเงินล่าสุด 20 รายการ</h2>
 				<div>
 					{
 						!this.state.textList &&
-						<h4>Loading...</h4>
+						<h2 className="loading">Loading...</h2>
 					}
-					<ul className="list-unstyled">
-						{this.state.textList}
-					</ul>
+					{
+						this.state.textList &&
+						<table>
+							<thead>
+								<tr>
+									<th>#</th>
+									<th>วันที่</th>
+									<th>จำนวน(THB)</th>
+									<th>สถานะ</th>
+								</tr>
+							</thead>
+							<tbody>
+								{this.state.textList}
+							</tbody>
+						</table>
+					}
 				</div>
 			</div>
 		)

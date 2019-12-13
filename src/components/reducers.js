@@ -1,29 +1,23 @@
 import {createStore, combineReducers} from 'redux'
 
-const initialState = {grade: 0, message: "somchai"}
+const initialState = {amount: 0}
 function create(state=initialState, action){
 	switch(action.type){
+		case "SET":
+			return {amount: action.payload}
 		case "ADD":
-			return {grade: state.grade+1, message: "upgrade"}
+			return {amount: state.amount+1}
 		case "DEL":
-			return {grade: state.grade-1, message: "downgrade"}
+			return {amount: state.amount-1}
+		case "CLEAR":
+			return {amount: 0}
 		default:
-			return {grade: state.grade, message: "nothing"}
-	}
-}
-const initialApi = {feeded: false, data: null}
-function api(state=initialApi, action){
-	switch(action.type){
-		case "FEED":
-			return {feeded: true, data: action.payload}
-		default:
-			return {feeded: false, data: state.data}
+			return {amount: state.amount}
 	}
 }
 
 const reducers = combineReducers({
-	create,
-	api
+	create
 })
 
 const store = createStore(reducers)

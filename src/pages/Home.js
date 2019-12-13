@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import Script from 'react-load-script'
 
 class Home extends Component{
 	render(){
@@ -8,7 +7,7 @@ class Home extends Component{
 			<div>
 				<h2>วิธีทำรายการ</h2>
 				<div>
-					<a className="a_title">การชำระเงินผ่านบัตรเครดิตและอินเตอร์เน็ตแบ็งค์กิ้ง</a>
+					<p className="a_title">การชำระเงินผ่านบัตรเครดิตและอินเตอร์เน็ตแบ็งค์กิ้ง</p>
 					<ol>
 						<li>ไปที่หน้า Products</li>
 						<li>เลือกสินค้าจากรายการตัวอย่าง</li>
@@ -39,7 +38,7 @@ class Home extends Component{
 				</div>
 				<h2>ตัวอย่างการทำรายการ</h2>
 				<div>
-					<a className="a_title">1. รูปตัวอย่างการทำรายการผ่านบัตรเครดิต</a>
+					<p className="a_title">1. รูปตัวอย่างการทำรายการผ่านบัตรเครดิต</p>
 					<ol>
 						<li>
 							add cart แล้วกด Pay
@@ -66,7 +65,7 @@ class Home extends Component{
 				
 				
 				<div>
-					<a className="a_title">2. รูปตัวอย่างการทำรายการผ่านอินเตอร์เน็ตแบ็งค์กิ้ง</a>
+					<p className="a_title">2. รูปตัวอย่างการทำรายการผ่านอินเตอร์เน็ตแบ็งค์กิ้ง</p>
 					<ol>
 						<li>
 							add cart แล้วกด Pay

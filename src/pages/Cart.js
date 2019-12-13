@@ -152,8 +152,8 @@ class Cart extends Component{
 			onCreateTokenSuccess: (token) => {
 				//console.log(token)
 				if(token.indexOf('tokn')===-1){
-					this.createInternetBankingCharge('Kline', 'test@test.com', totalAmount, token,'https://joystats.co/#/finished/'+random,random);
-					//this.createInternetBankingCharge('Kline', 'test@test.com', totalAmount, token,'https://reactshop-18352.firebaseapp.com/#/finished/'+random,random);
+					//this.createInternetBankingCharge('Kline', 'test@test.com', totalAmount, token,'https://joystats.co/#/finished/'+random,random);
+					this.createInternetBankingCharge('Kline', 'test@test.com', totalAmount, token,'https://reactshop-18352.firebaseapp.com/#/finished/'+random,random);
 				}else{
 					this.createCreditCardCharge('Kline', 'test@test.com', totalAmount, token);
 				}

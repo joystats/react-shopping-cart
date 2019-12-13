@@ -8,7 +8,7 @@ class About extends Component{
 				<ul>
 					<li>เว็บนี้สร้างขึ้นด้วย <a href="https://reactjs.org/">ReactJS</a></li>
 					<li>เชื่อมต่อ API ชำระเงินของ <a href="https://omise.co">Omise</a> ด้วย <a href="https://nodejs.org/">NodeJS</a> x <a href="https://expressjs.com/">ExpressJS</a></li>
-					<li>Deploy CI ที่ <a href="https://heroku.com">Zeit.com</a></li>
+					<li>Deploy ที่ <a href="https://zeit.com">Zeit.com</a></li>
 					<li>ผ่าน <a href="https://github.com">Github</a> แบบอัติโนมัติ</li>
 					<li>แจ้งเตือนทาง <a href="https://notify-bot.line.me/th/">Line Notify</a> และอีเมล์ <a href="https://nodemailer.com/">Node Mailer</a></li>
 					<li>รายการสินค้าตัวอย่าง จาก <a href="https://www.slyq-clothing.com/">slyq-clothing</a></li>

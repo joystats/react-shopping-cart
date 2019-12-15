@@ -178,6 +178,7 @@ class Cart extends Component{
 		
 		let localData = localStorage.getItem("carts");
 		if(!localData){
+			this.props.clearAmountCart()
 			return;
 		}
 		let array_price=[]

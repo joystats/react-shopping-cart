@@ -215,12 +215,11 @@ class Cart extends Component{
 		if(updateCarts.length>0){
 			this.setState({carts:JSON.stringify(updateCarts)})
 			localStorage.setItem("carts",btoa(JSON.stringify(updateCarts)))
-			this.getAmount()
 		}else{
 			this.setState({carts:null})
 			localStorage.removeItem("carts")
 		}
-		
+		this.getAmount()
 	}
 }
 

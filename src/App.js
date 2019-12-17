@@ -25,7 +25,7 @@ class App extends Component {
 						<Route path="/checkout">
 							<Checkout/>
 						</Route>
-						<Route path="/product/:id/:title" component={ProductDetail}/>
+						<Route path="/products/:id/:title" component={ProductDetail}/>
 						<Route path="/products" exact>
 							<Products/>
 						</Route>

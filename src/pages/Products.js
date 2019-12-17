@@ -32,7 +32,7 @@ class Products extends Component{
 						this.state.products.map((item, index)=>{
 							return (
 								<li key={index}>
-									<Link className="a_product" to={`/product/${item.id}/${item.name}`}>
+									<Link className="a_product" to={`/products/${item.id}/${item.name}`}>
 										<img src={item.image_url} alt="item"/>
 										<span>{item.name}</span>
 										<p>{item.price} THB</p>

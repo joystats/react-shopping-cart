@@ -40,7 +40,7 @@ class Finished extends Component{
 							Amount: {(this.state.amount/100).toFixed(2)}
 							<br/>
 							Status: {this.state.status}
-							<br/><br/> Go to <Link to="products">Products</Link>
+							<br/><br/> Go to <Link to="../products">Products</Link>
 						</div>
 					</div>
 				}

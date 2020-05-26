@@ -11,7 +11,7 @@ class Header extends Component{
 			<>
 				<header>
 					<h1>ตัวอย่างระบบการชำระเงิน</h1>
-					<h2>ผ่านบัตรเครดิตและอินเตอร์เน็ตแบ็งคกิ้ง.</h2>
+					<h2>ผ่านบัตรเครดิตและอินเตอร์เน็ตแบ็งคกิ้ง</h2>
 					<p>โดยใช้ Payment API ของ <a href="https://omise.co">Omise.co</a> ท่านสามารถทดลองใช้งานได้ทันที หรือ ข้อมูลเพิ่มเติมที่หน้า <NavLink to="/about">About</NavLink></p>
 				</header>
 				<ul id="nav">
